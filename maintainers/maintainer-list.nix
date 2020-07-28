@@ -673,6 +673,12 @@
     githubId = 3965744;
     name = "Arthur Lee";
   };
+  arturcygan = {
+    email = "arczicygan@gmail.com";
+    github = "arcz";
+    githubId = 4679721;
+    name = "Artur Cygan";
+  };
   artuuge = {
     email = "artuuge@gmail.com";
     github = "artuuge";
@@ -6855,6 +6861,12 @@
     github = "rkoe";
     githubId = 2507744;
     name = "Roland Koebler";
+  };
+  rizary = {
+    email = "andika@numtide.com";
+    github = "Rizary";
+    githubId = 7221768;
+    name = "Andika Demas Riyandi";
   };
   rkrzr = {
     email = "ops+nixpkgs@channable.com";
