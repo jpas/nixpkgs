@@ -2525,6 +2525,8 @@ in
 
   cemu = qt5.callPackage ../applications/science/math/cemu { };
 
+  isolyzer = callPackage ../tools/cd-dvd/isolyzer { };
+
   isomd5sum = callPackage ../tools/cd-dvd/isomd5sum { };
 
   mdf2iso = callPackage ../tools/cd-dvd/mdf2iso { };
@@ -21495,6 +21497,8 @@ in
 
   nootka = qt5.callPackage ../applications/audio/nootka { };
   nootka-unstable = qt5.callPackage ../applications/audio/nootka/unstable.nix { };
+
+  nwg-launchers = callPackage ../applications/misc/nwg-launchers { };
 
   open-policy-agent = callPackage ../development/tools/open-policy-agent { };
 
