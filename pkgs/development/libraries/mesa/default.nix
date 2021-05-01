@@ -32,7 +32,7 @@ with lib;
 let
   # Release calendar: https://www.mesa3d.org/release-calendar.html
   # Release frequency: https://www.mesa3d.org/releasing.html#schedule
-  version = "21.0.1";
+  version = "21.1.0-rc3";
   branch  = versions.major version;
 
 self = stdenv.mkDerivation {
@@ -46,7 +46,7 @@ self = stdenv.mkDerivation {
       "ftp://ftp.freedesktop.org/pub/mesa/${version}/mesa-${version}.tar.xz"
       "ftp://ftp.freedesktop.org/pub/mesa/older-versions/${branch}.x/${version}/mesa-${version}.tar.xz"
     ];
-    sha256 = "1fqj2xhhd1ary0pfg31jq6fqcnd6qgyrw1445nmz554k8n2ck7rp";
+    hash = "sha256-DRLkrGBntPnsRolWGlcA3Xksdl95oLogk1efU1CILxg=";
   };
 
   prePatch = "patchShebangs .";
@@ -64,6 +64,12 @@ self = stdenv.mkDerivation {
       name = "nine_debug-Make-tid-more-type-correct";
       url = "https://gitlab.freedesktop.org/mesa/mesa/commit/aebbf819df6d1e.patch";
       sha256 = "17248hyzg43d73c86p077m4lv1pkncaycr3l27hwv9k4ija9zl8q";
+    })
+    # TODO: Remove when https://gitlab.freedesktop.org/mesa/mesa/-/merge_requests/10426 is merged and available
+    (fetchpatch {
+      name = "intel_isl-add-storage-image-support-for-B8G8R8A8";
+      url = "https://gitlab.freedesktop.org/mesa/mesa/-/commit/67afa751407a24e76ebd719d2040668b39be81d1.patch";
+      sha256 = "sha256-X97uEXadv8ToYMREj6qu42Uo9ql+JoCpnEhuHRfSOcg=";
     })
   ] ++ optionals (stdenv.isDarwin && stdenv.isAarch64) [
     # Fix aarch64-darwin build, remove when upstreaam supports it out of the box.
