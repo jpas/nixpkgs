@@ -9879,6 +9879,8 @@ with pkgs;
 
   pingtcp = callPackage ../tools/networking/pingtcp { };
 
+  pingu = callPackage ../tools/networking/pingu { };
+
   pinnwand = callPackage ../servers/pinnwand { };
 
   pinsel = callPackage ../tools/misc/pinsel { };
@@ -10541,6 +10543,8 @@ with pkgs;
   rpmextract = callPackage ../tools/archivers/rpmextract { };
 
   rrdtool = callPackage ../tools/misc/rrdtool { };
+
+  rscw = callPackage ../applications/radio/rscw { };
 
   rset = callPackage ../tools/admin/rset { };
 
@@ -34110,6 +34114,8 @@ with pkgs;
 
   inormalize = callPackage ../applications/science/biology/inormalize { };
 
+  iqtree = callPackage ../applications/science/biology/iqtree { };
+
   itsx = callPackage ../applications/science/biology/itsx { };
 
   iv = callPackage ../applications/science/biology/iv {
@@ -36148,6 +36154,8 @@ with pkgs;
 
   uacme = callPackage ../tools/admin/uacme { };
 
+  ufiformat = callPackage ../tools/system/ufiformat { };
+
   ums = callPackage ../servers/ums { };
 
   unityhub = callPackage ../development/tools/unityhub { };
@@ -36167,6 +36175,8 @@ with pkgs;
   unixcw = libsForQt5.callPackage ../applications/radio/unixcw { };
 
   vault = callPackage ../tools/security/vault { };
+
+  vault-medusa = callPackage ../tools/security/vault-medusa { };
 
   vault-bin = callPackage ../tools/security/vault/vault-bin.nix { };
 
