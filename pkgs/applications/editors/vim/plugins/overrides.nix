@@ -204,7 +204,7 @@ in
         pname = "avante-nvim-lib";
         inherit (oldAttrs) version src;
 
-        cargoHash = "sha256-aB+KhqSTGTiZKml6G+cte94EAWNWo1dP8igfFOIfHXA=";
+        cargoHash = "sha256-PApZwqlu7GgCEvdTZVm1uB6ny6KSje1rL4Bzjt+iKF4=";
 
         nativeBuildInputs = [
           pkg-config
@@ -257,6 +257,15 @@ in
       };
     }
   );
+
+  aw-watcher-vim = super.aw-watcher-vim.overrideAttrs {
+    patches = [
+      (substituteAll {
+        src = ./patches/aw-watcher-vim/program_paths.patch;
+        curl = lib.getExe curl;
+      })
+    ];
+  };
 
   bamboo-nvim = super.bamboo-nvim.overrideAttrs {
     nvimSkipModule = [
