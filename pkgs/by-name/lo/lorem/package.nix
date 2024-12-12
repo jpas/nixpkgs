@@ -1,17 +1,18 @@
-{ lib
-, cargo
-, desktop-file-utils
-, fetchFromGitLab
-, glib
-, gtk4
-, libadwaita
-, meson
-, ninja
-, pkg-config
-, rustPlatform
-, rustc
-, stdenv
-, wrapGAppsHook4
+{
+  lib,
+  cargo,
+  desktop-file-utils,
+  fetchFromGitLab,
+  glib,
+  gtk4,
+  libadwaita,
+  meson,
+  ninja,
+  pkg-config,
+  rustPlatform,
+  rustc,
+  stdenv,
+  wrapGAppsHook4,
 }:
 
 stdenv.mkDerivation (finalAttrs: {
@@ -55,7 +56,7 @@ stdenv.mkDerivation (finalAttrs: {
     homepage = "https://apps.gnome.org/Lorem/";
     license = licenses.gpl3Plus;
     mainProgram = "lorem";
-    maintainers = with maintainers; [ michaelgrahamevans ];
+    maintainers = with maintainers; [ michaelgrahamevans ] ++ lib.teams.gnome-circle.members;
     platforms = platforms.linux;
   };
 })

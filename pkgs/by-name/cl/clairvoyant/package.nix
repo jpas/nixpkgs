@@ -1,14 +1,15 @@
-{ lib
-, fetchFromGitHub
-, gtk4
-, libadwaita
-, libportal
-, meson
-, ninja
-, pkg-config
-, stdenv
-, vala
-, wrapGAppsHook4
+{
+  lib,
+  fetchFromGitHub,
+  gtk4,
+  libadwaita,
+  libportal,
+  meson,
+  ninja,
+  pkg-config,
+  stdenv,
+  vala,
+  wrapGAppsHook4,
 }:
 
 stdenv.mkDerivation (finalAttrs: {
@@ -42,6 +43,6 @@ stdenv.mkDerivation (finalAttrs: {
     homepage = "https://github.com/cassidyjames/clairvoyant";
     license = licenses.gpl3Plus;
     mainProgram = "com.github.cassidyjames.clairvoyant";
-    maintainers = with maintainers; [ michaelgrahamevans ];
+    maintainers = with maintainers; [ michaelgrahamevans ] ++ lib.teams.gnome-circle.members;
   };
 })

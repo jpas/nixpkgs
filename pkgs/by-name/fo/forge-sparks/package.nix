@@ -1,20 +1,21 @@
-{ lib
-, blueprint-compiler
-, desktop-file-utils
-, fetchFromGitHub
-, gjs
-, glib
-, glib-networking
-, gtk4
-, libadwaita
-, libportal
-, libsecret
-, libsoup_3
-, meson
-, ninja
-, pkg-config
-, stdenv
-, wrapGAppsHook4
+{
+  lib,
+  blueprint-compiler,
+  desktop-file-utils,
+  fetchFromGitHub,
+  gjs,
+  glib,
+  glib-networking,
+  gtk4,
+  libadwaita,
+  libportal,
+  libsecret,
+  libsoup_3,
+  meson,
+  ninja,
+  pkg-config,
+  stdenv,
+  wrapGAppsHook4,
 }:
 
 stdenv.mkDerivation (finalAttrs: {
@@ -64,7 +65,7 @@ stdenv.mkDerivation (finalAttrs: {
     homepage = "https://github.com/rafaelmardojai/forge-sparks";
     license = licenses.mit;
     mainProgram = "forge-sparks";
-    maintainers = with maintainers; [ michaelgrahamevans ];
+    maintainers = with maintainers; [ michaelgrahamevans ] ++ lib.teams.gnome-circle.members;
     platforms = platforms.linux;
   };
 })

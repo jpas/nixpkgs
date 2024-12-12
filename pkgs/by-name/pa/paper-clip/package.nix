@@ -1,17 +1,18 @@
-{ lib
-, desktop-file-utils
-, exempi
-, fetchFromGitHub
-, glib
-, gtk4
-, libadwaita
-, meson
-, ninja
-, pkg-config
-, poppler
-, stdenv
-, vala
-, wrapGAppsHook4
+{
+  lib,
+  desktop-file-utils,
+  exempi,
+  fetchFromGitHub,
+  glib,
+  gtk4,
+  libadwaita,
+  meson,
+  ninja,
+  pkg-config,
+  poppler,
+  stdenv,
+  vala,
+  wrapGAppsHook4,
 }:
 
 stdenv.mkDerivation (finalAttrs: {
@@ -48,7 +49,7 @@ stdenv.mkDerivation (finalAttrs: {
     homepage = "https://github.com/Diego-Ivan/Paper-Clip";
     license = licenses.gpl3Plus;
     mainProgram = "pdf-metadata-editor";
-    maintainers = with maintainers; [ michaelgrahamevans ];
+    maintainers = with maintainers; [ michaelgrahamevans ] ++ lib.teams.gnome-circle.members;
     platforms = platforms.linux;
   };
 })
