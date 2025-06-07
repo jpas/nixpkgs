@@ -1,5 +1,6 @@
 {
   lib,
+  stdenv,
   fetchFromGitHub,
   rustPlatform,
   cacert,
@@ -20,19 +21,19 @@
 
 buildPythonPackage rec {
   pname = "granian";
-  version = "2.3.1";
+  version = "2.3.2";
   pyproject = true;
 
   src = fetchFromGitHub {
     owner = "emmett-framework";
     repo = "granian";
     tag = "v${version}";
-    hash = "sha256-LDO5lyEk9ZJOfccVNYU6mIGJV952Z7NgMweQWclxQ9o=";
+    hash = "sha256-qJ65ILj7xLqOWmpn1UzNQHUnzFg714gntVSmYHpI65I=";
   };
 
   cargoDeps = rustPlatform.fetchCargoVendor {
     inherit pname version src;
-    hash = "sha256-NYOORW3OQXSqmDMsFWjNl6UmN1RO/hAz+nuLfm/y6Uk=";
+    hash = "sha256-swfqKp8AsxNAUc7dlce6J4dNQbNGWrCcUDc31AhuMmI=";
   };
 
   nativeBuildInputs = with rustPlatform; [
@@ -40,9 +41,10 @@ buildPythonPackage rec {
     maturinBuildHook
   ];
 
-  buildInputs = [
+  buildInputs = lib.optionals (stdenv.hostPlatform.isAarch64) [
     # fix "Unsupported system page size" on aarch64-linux with 16k pages
     # https://github.com/NixOS/nixpkgs/issues/410572
+    # only enabled on aarch64 due to https://github.com/NixOS/nixpkgs/pull/410611#issuecomment-2939564567
     (rust-jemalloc-sys.overrideAttrs (
       { configureFlags, ... }:
       {
@@ -96,6 +98,7 @@ buildPythonPackage rec {
   meta = {
     description = "Rust HTTP server for Python ASGI/WSGI/RSGI applications";
     homepage = "https://github.com/emmett-framework/granian";
+    changelog = "https://github.com/emmett-framework/granian/releases/tag/v${version}";
     license = lib.licenses.bsd3;
     mainProgram = "granian";
     maintainers = with lib.maintainers; [
