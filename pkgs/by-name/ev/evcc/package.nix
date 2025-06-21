@@ -17,16 +17,16 @@
 }:
 
 let
-  version = "0.204.1";
+  version = "0.204.3";
 
   src = fetchFromGitHub {
     owner = "evcc-io";
     repo = "evcc";
     tag = version;
-    hash = "sha256-z3SwTBcCETIe2xPN9VU3mqYxd7npvrs44FkGQp56Y00=";
+    hash = "sha256-Z8Fac1vIBUJ34hXgOOAo8z91lBCKw+IP1Ff6r+jBtj0=";
   };
 
-  vendorHash = "sha256-dBOZ5kYQxVTWB1CTTF3L+FIsuLnVQmA7Vjid7CdJbeo=";
+  vendorHash = "sha256-n67OSKpMhvgqftoVAqtABfcNgdRSbWjmJv7HSmv3Ev8=";
 
   commonMeta = with lib; {
     license = licenses.mit;
@@ -52,7 +52,7 @@ buildGo124Module rec {
 
   npmDeps = fetchNpmDeps {
     inherit src;
-    hash = "sha256-z64qzc3rDFByJ6Usubm9IIHfu4/i07O/zjtq2VjN7lk=";
+    hash = "sha256-6oFvrLY5OM+5YgWRlx28+z2yB+Vo/SkV6ZsD3r3Ckis=";
   };
 
   nativeBuildInputs = [
