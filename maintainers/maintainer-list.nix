@@ -14278,6 +14278,13 @@
     githubId = 80984519;
     name = "Kristian Alvestad Nedevold-Hansen";
   };
+  KristijanZic = {
+    name = "Kristijan Zic";
+    github = "KristijanZic";
+    githubId = 10299892;
+    email = "maintainer@zic.email";
+    matrix = "@kristijan.zic:matrix.org";
+  };
   kristoff3r = {
     email = "k.soeholm@gmail.com";
     github = "kristoff3r";
